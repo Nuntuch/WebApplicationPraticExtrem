@@ -7,18 +7,20 @@ package sit.int303.practicextrem.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import sit.int303.practicextream.model.PrimeNumber;
 
 /**
  *
  * @author Nuntuch Thongyoo
  */
-public class PrimeNumberServlet extends HttpServlet {
+@WebServlet(name = "TestRequestParamServlet", urlPatterns = {"/TestRequestParamServlet", "/TestRequestParam"})
+public class TestRequestParamServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,40 +36,35 @@ public class PrimeNumberServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+
             try {
 
-//        request.getSession(); จะมีค่าเริ่มต้นเป็น true
-//        request.getSession(Boolean); ถ้าเป็นt แล้วไม่เคยมีเชตชั่นจะสรัางให้ แต่ถ้า f แล้วไม่มีเชตชั่นจะreturn null
-                HttpSession session = request.getSession(true);
-                
-                String n = request.getParameter("number");
-                
-                if (n != null) {
-                    int number = Integer.valueOf(n);
-                    PrimeNumber pn = (PrimeNumber) session.getAttribute("pn");
-                    
-                    if (pn == null) {
-                        pn = new PrimeNumber(number);
-                        session.setAttribute("pn", pn);
-                    }
-                    pn.setNumber(number);
+                String id = request.getParameter("id");
+                String name = request.getParameter("name");
+                String[] subjects = request.getParameterValues("subjects");
+             List<String> subjectList = new ArrayList();
+
+                for (String subject : subjects) {
+                    subjectList.add(subject);
+
                 }
-                getServletContext().getRequestDispatcher("/PrimeNumberView.jsp").forward(request, response);
-                
+                request.setAttribute("subjectList", subjectList);
+                getServletContext().getRequestDispatcher("/ViewParameter.jsp").forward(request, response);
+
             } catch (Exception e) {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>Servlet PrimeNumberServlet</title>");
+                out.println("<title>Servlet TestRequestParamServlet</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>This is PrimeNumberServlet.java </h1>");
-                out.println("<h1>Servlet Error!!! " + e + "</h1>");
-                out.println("<h1>Servlet PrimeNumberServlet at " + request.getContextPath() + "</h1>");
+                out.println("<h1>This is TestRequestParamServlet.java </h1>");
+                out.println("<h1>Servlet Error " + e + "</h1>");
+                out.println("<h1>Servlet TestRequestParamServlet at " + request.getContextPath() + "</h1>");
                 out.println("</body>");
                 out.println("</html>");
             }
-            
+
         }
     }
 
