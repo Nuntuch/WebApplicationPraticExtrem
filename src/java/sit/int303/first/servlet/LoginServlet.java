@@ -27,8 +27,8 @@ public class LoginServlet extends HttpServlet {
     @Resource
     UserTransaction utx;
 
-//    @PersistenceUnit(unitName = "MyFirstWebAppPU")
-    @PersistenceUnit(unitName = "MyFirstWebAppPUO")
+    @PersistenceUnit(unitName = "MyFirstWebAppPU")
+   
     EntityManagerFactory emf;
 
     /**
