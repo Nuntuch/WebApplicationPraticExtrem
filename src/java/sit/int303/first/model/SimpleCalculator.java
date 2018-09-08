@@ -16,23 +16,35 @@ public class SimpleCalculator {
     private String operator;
 
     public int getResult() {
+//
+//        switch (operator) {
+//            case "+":
+//                return x + y;
+//
+//            case "-":
+//                return x - y;
+//
+//            case "*":
+//                return x * y;
+//
+//            case "/":
+//                return x / y;
+//
+//            default:
+//                return 0;
+//        }
 
-        switch (operator) {
-            case "+":
-                return x + y;
-
-            case "-":
-                return x - y;
-
-            case "*":
-                return x * y;
-
-            case "/":
-                return x / y;
-
-            default:
-                return 0;
-        }
+    if(operator.equals("+")){
+    return x+y;
+    }else if(operator.equals("-")){
+    return x-y;
+    }else if(operator.equals("*")){
+    return x*y;
+    }else if(operator.equals("/")){
+    return x/y;
+    }else {
+        return 0;
+    }
 
     }
 
