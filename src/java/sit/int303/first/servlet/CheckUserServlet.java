@@ -49,11 +49,11 @@ public class CheckUserServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-            HttpSession session = request.getSession(true);
+//            HttpSession session = request.getSession(true);
 //            long id = Long.parseLong(request.getParameter("id"));
-            String ids = request.getParameter("id");
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
+//            String ids = request.getParameter("id");
+//            String username = request.getParameter("username");
+//            String password = request.getParameter("password");
 /////////////////////////////////////////////////////////////////////////////////////////
 //            if (ids != null) {
 //                long id = Long.parseLong(ids);
@@ -70,23 +70,25 @@ public class CheckUserServlet extends HttpServlet {
 //                
 //            }
 ////////////////////////////////////////////////////////////////////////////////////////////////
-            if (ids != null && username != null && password != null) {
-                long id = Long.parseLong(ids);
-                CheckUsers cu = (CheckUsers)session.getAttribute("cu");
-   
-                ProUser pu = new ProUser();
-                    pu.setId(id);
-                    pu.setUsername(username);
-                    pu.setPassword(password);
-                    
-                if (cu == null) {
-                    cu = new CheckUsers(pu);
-                    session.setAttribute("checkuser", cu);
-                    
-                }
-                    cu.setPu(pu);
-                
-            }
+//////////////////////////////////////////////////////////////////////////////////            
+//if (ids != null && username != null && password != null) {
+//                long id = Long.parseLong(ids);
+//                CheckUsers cu = (CheckUsers)session.getAttribute("cu");
+//   
+//                ProUser pu = new ProUser();
+//                    pu.setId(id);
+//                    pu.setUsername(username);
+//                    pu.setPassword(password);
+//                    
+//                if (cu == null) {
+//                    cu = new CheckUsers(pu);
+//                    session.setAttribute("checkuser", cu);
+//                    
+//                }
+//                    cu.setPu(pu);
+//                
+//            }
+////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 //            if (ids != null) {
 //                long id = Long.parseLong(ids);
@@ -129,6 +131,26 @@ public class CheckUserServlet extends HttpServlet {
 //            CheckUsers cu = new CheckUsers();
 //            cu.CheckUser(id, username, password);
 //            request.setAttribute("checkuser", cu);
+
+
+
+            HttpSession session = request.getSession(true);
+
+
+
+            String ids = request.getParameter("id");
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+
+
+
+
+
+
+
+
+
+
             getServletContext().getRequestDispatcher("/checkuser.jsp").forward(request, response);
 
         } catch (Exception e) {
