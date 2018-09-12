@@ -100,8 +100,9 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SimpleCalculatorServletO</servlet-name>
-        <url-pattern>/SimpleCalculatorServletO/SC</url-pattern>
-        <url-pattern>/simcal</url-pattern>
+        <url-pattern>/simcalo</url-pattern>
+        <url-pattern>/SimpleCalculatorServletO/SCO</url-pattern>
+        <url-pattern>/simo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

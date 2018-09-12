@@ -29,6 +29,15 @@ public class SimpleCalculatorServletO extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String xStr = request.getParameter("x");
+        String yStr = request.getParameter("y");
+        String operator = request.getParameter("oper");
+        
+        double xValue = Double.valueOf(xStr);
+        double yValue = Double.valueOf(yStr);
+        double result = xValue + yValue; 
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -39,6 +48,10 @@ public class SimpleCalculatorServletO extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet SimpleCalculatorServletO at " + request.getContextPath() + "</h1>");
+            out.println("<h1 style='color:darkblue'>Servlet SimpleCalculatorO </h1><hr>");
+            out.print("&nbsp; &nbsp; &nbsp; &nbsp; x = "+ xValue +"<br>");
+            out.print("&nbsp; &nbsp; &nbsp; &nbsp; y = "+ yValue +"<hr>");
+            out.print("&nbsp; &nbsp; &nbsp; &nbsp; Result = "+ result +"<hr>");
             out.println("</body>");
             out.println("</html>");
         }
