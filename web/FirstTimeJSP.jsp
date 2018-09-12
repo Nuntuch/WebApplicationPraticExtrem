@@ -12,9 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World!</h1><hr>
         
-    <from action ="FirstTimeJSP.jsp" method="post">
+    <from action ="/FirstTimeJSP.jsp" method="post">
         x = <input type="number" name="x"/><br>
         y = <input type="number" name="y"/><br>
         <input type="submit"/>
