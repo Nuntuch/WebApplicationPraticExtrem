@@ -50,6 +50,10 @@
         <servlet-name>CheckUserServlet</servlet-name>
         <servlet-class>sit.int303.first.servlet.CheckUserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SimpleCalculatorServletO</servlet-name>
+        <servlet-class>sit.int303.demoweb.servlet.SimpleCalculatorServletO</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SimpleCalculatorServlet</servlet-name>
         <url-pattern>/SimpleCalcu</url-pattern>
@@ -93,6 +97,11 @@
         <servlet-name>CheckUserServlet</servlet-name>
         <url-pattern>/CheckUserServlet</url-pattern>
         <url-pattern>/CheckUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SimpleCalculatorServletO</servlet-name>
+        <url-pattern>/SimpleCalculatorServletO/SC</url-pattern>
+        <url-pattern>/simcal</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
