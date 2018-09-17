@@ -54,6 +54,10 @@
         <servlet-name>SimpleCalculatorServletO</servlet-name>
         <servlet-class>sit.int303.demoweb.servlet.SimpleCalculatorServletO</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ATMServlet</servlet-name>
+        <servlet-class>sit.int303.practice.servlet.ATMServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SimpleCalculatorServlet</servlet-name>
         <url-pattern>/SimpleCalcu</url-pattern>
@@ -103,6 +107,10 @@
         <url-pattern>/simcalo</url-pattern>
         <url-pattern>/SimpleCalculatorServletO/SCO</url-pattern>
         <url-pattern>/simo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ATMServlet</servlet-name>
+        <url-pattern>/ATM</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
